@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- title -->
+    <title>Bookmark</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="imgs/bookmark.png" type="image/x-icon" />
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="css/all.min.css" />
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- my styles -->
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container text-center py-5">
+        <div class="d-flex justify-content-center align-items-center">
+          <h1>Bookmarker</h1>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="input">
+        <div class="container py-5 my-border">
+          <div
+            class="my-gradient mb-5 d-flex justify-content-center align-items-center"
+          >
+            <i class="fa-solid fa-bookmark fa-2x me-2"></i>
+            <h2>Bookmark your favorite sites</h2>
+            <i class="fa-solid fa-bookmark fa-2x ms-2"></i>
+          </div>
+          <div class="mb-4">
+            <label for="siteName" class="form-label fw-bold">
+              <i class="fa-solid fa-book-bookmark me-2"></i>Site Name
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="siteName"
+              placeholder="Bookmark Name"
+              oninput="validate(this)"
+            />
+          </div>
+          <div class="mb-4">
+            <label for="websiteUrl" class="form-label fw-bold">
+              <i class="fa-solid fa-link me-2"></i>Site URL
+            </label>
+            <input
+              type="url"
+              class="form-control"
+              id="websiteUrl"
+              placeholder="Website Url"
+              oninput="validate(this)"
+            />
+          </div>
+          <button
+            class="btn btn-submit d-block mx-auto px-5"
+            onclick="addBookmark()"
+          >
+            Submit
+          </button>
+        </div>
+      </section>
+
+      <section class="output">
+        <div class="container py-3 text-center">
+          <div class="row">
+            <table>
+              <thead class="bg-light my-gray-border">
+                <th>index</th>
+                <th>Website Name</th>
+                <th>Visit</th>
+                <th>Delete</th>
+              </thead>
+              <tbody id="myBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div>
+                <i class="fa-solid fa-circle text-danger"></i>
+                <i class="fa-solid fa-circle text-warning"></i>
+                <i class="fa-solid fa-circle text-success"></i>
+              </div>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <p class="fs-4 fw-bold">
+                Site Name or Url is not valid, Please follow the rules below :
+              </p>
+              <ul class="list-unstyled">
+                <li>
+                  <p class="fs-5">
+                    <i class="fa-regular fa-circle-right text-danger p-2"></i>
+                    Site name must contain at least 3 characters
+                  </p>
+                </li>
+                <li>
+                  <p class="fs-5">
+                    <i class="fa-regular fa-circle-right text-danger p-2"></i>
+                    Site URL must be a valid one
+                  </p>
+                </li>
+                <li>
+                  <p class="fs-5">
+                    <i class="fa-regular fa-circle-right text-danger p-2"></i>
+                    Site Name can't be duplicated
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- bootstrap js -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- my js -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
